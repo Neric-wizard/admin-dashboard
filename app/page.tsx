@@ -1,16 +1,31 @@
 import Sidebar from "./components/Sidebar";
+import Header from "./components/Header";
+import QuickActions from "./components/QuickActions";
 import StatsCards from "./components/StatsCards";
+import SalesChart from "./components/SalesChart";
+import RecentOrders from "./components/RecentOrders";
+import ActivityTimeline from "./components/ActivityTimeline";
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-950">
       <Sidebar />
       <main className="ml-64 p-8">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-white">Dashboard</h1>
-          <p className="text-gray-400 mt-1">Welcome back! Here's what's happening today.</p>
+        <Header />
+        <QuickActions />
+        <StatsCards />
+        
+        {/* Two column layout for chart and activity */}
+        <div className="grid lg:grid-cols-3 gap-8 mt-8">
+          <div className="lg:col-span-2">
+            <SalesChart />
+          </div>
+          <div className="lg:col-span-1">
+            <ActivityTimeline />
+          </div>
         </div>
         
-        <StatsCards />
+        <RecentOrders />
       </main>
     </div>
   );
