@@ -23,7 +23,6 @@ export default function RecentOrders() {
     Cancelled: "text-red-400 bg-red-400/10 border border-red-400/20",
   };
 
-  // Filter orders based on search
   const filteredOrders = orders.filter(order =>
     order.customer.toLowerCase().includes(searchTerm.toLowerCase()) ||
     order.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -35,7 +34,6 @@ export default function RecentOrders() {
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
         <h2 className="text-xl font-bold text-white">Recent Orders</h2>
         
-        {/* Search Bar */}
         <div className="relative w-full sm:w-64">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
           <input
@@ -48,31 +46,36 @@ export default function RecentOrders() {
         </div>
       </div>
 
-      <div className="space-y-4 max-h-[400px] overflow-y-auto custom-scrollbar">
-        {filteredOrders.length > 0 ? (
-          filteredOrders.map((order) => (
-            <div key={order.id} className="flex items-center justify-between py-3 border-b border-gray-700 last:border-0">
-              <div className="flex items-center gap-4">
-                <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${order.color} flex items-center justify-center text-white font-bold text-sm`}>
-                  {order.avatar}
+      {/* WRAPPED CONTENT FOR MOBILE SCROLLING */}
+      <div className="overflow-x-auto -mx-4 sm:mx-0">
+        <div className="inline-block min-w-full align-middle px-4 sm:px-0">
+          <div className="space-y-4 max-h-[400px] overflow-y-auto custom-scrollbar">
+            {filteredOrders.length > 0 ? (
+              filteredOrders.map((order) => (
+                <div key={order.id} className="flex items-center justify-between py-3 border-b border-gray-700 last:border-0 min-w-[600px] sm:min-w-full">
+                  <div className="flex items-center gap-4">
+                    <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${order.color} flex items-center justify-center text-white font-bold text-sm`}>
+                      {order.avatar}
+                    </div>
+                    <div>
+                      <p className="text-white font-medium">{order.customer}</p>
+                      <p className="text-gray-400 text-sm">{order.id}</p>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-white font-bold">{order.amount}</p>
+                    <span className={`text-xs px-2 py-1 rounded-full ${statusColors[order.status as keyof typeof statusColors]}`}>
+                      {order.status}
+                    </span>
+                    <p className="text-gray-500 text-xs mt-1">{order.date}</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-white font-medium">{order.customer}</p>
-                  <p className="text-gray-400 text-sm">{order.id}</p>
-                </div>
-              </div>
-              <div className="text-right">
-                <p className="text-white font-bold">{order.amount}</p>
-                <span className={`text-xs px-2 py-1 rounded-full ${statusColors[order.status as keyof typeof statusColors]}`}>
-                  {order.status}
-                </span>
-                <p className="text-gray-500 text-xs mt-1">{order.date}</p>
-              </div>
-            </div>
-          ))
-        ) : (
-          <p className="text-gray-400 text-center py-8">No orders found matching "{searchTerm}"</p>
-        )}
+              ))
+            ) : (
+              <p className="text-gray-400 text-center py-8">No orders found matching "{searchTerm}"</p>
+            )}
+          </div>
+        </div>
       </div>
 
       <div className="flex items-center justify-between mt-6 pt-4 border-t border-gray-700">

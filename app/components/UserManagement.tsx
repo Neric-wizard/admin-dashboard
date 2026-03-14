@@ -41,7 +41,6 @@ export default function UserManagement() {
 
   return (
     <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl border border-gray-700 p-6 mt-8">
-      {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
         <div>
           <h2 className="text-2xl font-bold text-white">User Management</h2>
@@ -63,7 +62,6 @@ export default function UserManagement() {
         </div>
       </div>
 
-      {/* Search Bar */}
       <div className="relative mb-6">
         <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
         <input
@@ -75,55 +73,58 @@ export default function UserManagement() {
         />
       </div>
 
-      {/* Users Table */}
-      <div className="space-y-4 max-h-[500px] overflow-y-auto custom-scrollbar pr-2">
-        {filteredUsers.length > 0 ? (
-          filteredUsers.map((user) => (
-            <div key={user.id} className="bg-gray-900/30 rounded-xl p-4 border border-gray-700 hover:border-purple-500/50 transition">
-              <div className="flex items-start justify-between">
-                <div className="flex items-start gap-4">
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${user.color} flex items-center justify-center text-white font-bold text-lg`}>
-                    {user.avatar}
-                  </div>
-                  <div>
-                    <h3 className="text-white font-semibold">{user.name}</h3>
-                    <p className="text-gray-400 text-sm">{user.email}</p>
-                    <div className="flex items-center gap-3 mt-2">
-                      <span className="flex items-center gap-1 text-xs bg-purple-500/10 text-purple-400 px-2 py-1 rounded-full">
-                        <Shield size={12} />
-                        {user.role}
-                      </span>
-                      <span className={`text-xs px-2 py-1 rounded-full ${
-                        user.status === "Active" 
-                          ? "bg-green-500/10 text-green-400" 
-                          : "bg-gray-500/10 text-gray-400"
-                      }`}>
-                        {user.status}
-                      </span>
-                      <span className="text-xs text-gray-500">
-                        Active {user.lastActive}
-                      </span>
+      {/* WRAPPED CONTENT FOR MOBILE SCROLLING */}
+      <div className="overflow-x-auto -mx-4 sm:mx-0">
+        <div className="inline-block min-w-full align-middle px-4 sm:px-0">
+          <div className="space-y-4 max-h-[500px] overflow-y-auto custom-scrollbar pr-2">
+            {filteredUsers.length > 0 ? (
+              filteredUsers.map((user) => (
+                <div key={user.id} className="bg-gray-900/30 rounded-xl p-4 border border-gray-700 hover:border-purple-500/50 transition min-w-[600px] sm:min-w-full">
+                  <div className="flex items-start justify-between">
+                    <div className="flex items-start gap-4">
+                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${user.color} flex items-center justify-center text-white font-bold text-lg`}>
+                        {user.avatar}
+                      </div>
+                      <div>
+                        <h3 className="text-white font-semibold">{user.name}</h3>
+                        <p className="text-gray-400 text-sm">{user.email}</p>
+                        <div className="flex items-center gap-3 mt-2">
+                          <span className="flex items-center gap-1 text-xs bg-purple-500/10 text-purple-400 px-2 py-1 rounded-full">
+                            <Shield size={12} />
+                            {user.role}
+                          </span>
+                          <span className={`text-xs px-2 py-1 rounded-full ${
+                            user.status === "Active" 
+                              ? "bg-green-500/10 text-green-400" 
+                              : "bg-gray-500/10 text-gray-400"
+                          }`}>
+                            {user.status}
+                          </span>
+                          <span className="text-xs text-gray-500">
+                            Active {user.lastActive}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="flex gap-2">
+                      <button className="p-2 text-gray-400 hover:text-purple-400 hover:bg-gray-700 rounded-lg transition">
+                        <Edit2 size={16} />
+                      </button>
+                      <button className="p-2 text-gray-400 hover:text-red-400 hover:bg-gray-700 rounded-lg transition">
+                        <Trash2 size={16} />
+                      </button>
                     </div>
                   </div>
                 </div>
-                
-                <div className="flex gap-2">
-                  <button className="p-2 text-gray-400 hover:text-purple-400 hover:bg-gray-700 rounded-lg transition">
-                    <Edit2 size={16} />
-                  </button>
-                  <button className="p-2 text-gray-400 hover:text-red-400 hover:bg-gray-700 rounded-lg transition">
-                    <Trash2 size={16} />
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))
-        ) : (
-          <p className="text-gray-400 text-center py-8">No users found matching "{searchTerm}"</p>
-        )}
+              ))
+            ) : (
+              <p className="text-gray-400 text-center py-8">No users found matching "{searchTerm}"</p>
+            )}
+          </div>
+        </div>
       </div>
 
-      {/* Footer */}
       <div className="flex items-center justify-between mt-6 pt-4 border-t border-gray-700">
         <p className="text-gray-400 text-sm">
           Showing {filteredUsers.length} of {users.length} users

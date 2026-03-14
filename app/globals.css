@@ -42,3 +42,21 @@ body {
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #6B7280;
 }
+/* Extra small devices */
+@media (min-width: 475px) {
+  .xs\:inline {
+    display: inline;
+  }
+}
+
+/* Better touch targets for mobile */
+button, a {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+@media (max-width: 640px) {
+  .custom-scrollbar {
+    -webkit-overflow-scrolling: touch;
+  }
+}

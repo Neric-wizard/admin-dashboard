@@ -4,25 +4,25 @@ import { PlusCircle, Download, Upload, Filter } from "lucide-react";
 
 export default function QuickActions() {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-      <button className="bg-gradient-to-br from-purple-600 to-pink-600 text-white rounded-xl py-4 px-4 font-medium hover:from-purple-700 hover:to-pink-700 transition-all transform hover:scale-105 shadow-lg flex items-center justify-center gap-2">
-        <PlusCircle size={20} />
-        <span>New Order</span>
+    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 lg:gap-4 mb-6 sm:mb-8">
+      <button className="bg-gradient-to-br from-purple-600 to-pink-600 text-white rounded-lg sm:rounded-xl py-2 sm:py-4 px-2 sm:px-4 text-xs sm:text-sm font-medium hover:from-purple-700 hover:to-pink-700 transition-all transform hover:scale-[1.02] shadow-lg flex items-center justify-center gap-1 sm:gap-2">
+        <PlusCircle size={16} className="sm:w-5 sm:h-5" />
+        <span className="hidden xs:inline">New</span> Order
       </button>
       
-      <button className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 text-white rounded-xl py-4 px-4 font-medium hover:bg-gray-700 transition-all transform hover:scale-105 flex items-center justify-center gap-2">
-        <Download size={20} />
-        <span>Export</span>
+      <button className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 text-white rounded-lg sm:rounded-xl py-2 sm:py-4 px-2 sm:px-4 text-xs sm:text-sm font-medium hover:bg-gray-700 transition-all transform hover:scale-[1.02] flex items-center justify-center gap-1 sm:gap-2">
+        <Download size={16} className="sm:w-5 sm:h-5" />
+        Export
       </button>
       
-      <button className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 text-white rounded-xl py-4 px-4 font-medium hover:bg-gray-700 transition-all transform hover:scale-105 flex items-center justify-center gap-2">
-        <Upload size={20} />
-        <span>Import</span>
+      <button className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 text-white rounded-lg sm:rounded-xl py-2 sm:py-4 px-2 sm:px-4 text-xs sm:text-sm font-medium hover:bg-gray-700 transition-all transform hover:scale-[1.02] flex items-center justify-center gap-1 sm:gap-2">
+        <Upload size={16} className="sm:w-5 sm:h-5" />
+        Import
       </button>
       
-      <button className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 text-white rounded-xl py-4 px-4 font-medium hover:bg-gray-700 transition-all transform hover:scale-105 flex items-center justify-center gap-2">
-        <Filter size={20} />
-        <span>Filter</span>
+      <button className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 text-white rounded-lg sm:rounded-xl py-2 sm:py-4 px-2 sm:px-4 text-xs sm:text-sm font-medium hover:bg-gray-700 transition-all transform hover:scale-[1.02] flex items-center justify-center gap-1 sm:gap-2">
+        <Filter size={16} className="sm:w-5 sm:h-5" />
+        Filter
       </button>
     </div>
   );
