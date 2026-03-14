@@ -13,12 +13,13 @@ export default function Home() {
     <div className="min-h-screen bg-gray-950">
       <MobileMenu />
       <Sidebar />
-      <main className="lg:ml-64 p-4 sm:p-6 lg:p-8">
+      <main className="lg:ml-64 p-3 sm:p-4">
         <Header />
         <QuickActions />
         <StatsCards />
         
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8 mt-4 lg:mt-8">
+        {/* Chart + Activity - Stack on mobile, grid on desktop */}
+        <div className="flex flex-col lg:grid lg:grid-cols-3 gap-4 mt-4">
           <div className="lg:col-span-2">
             <SalesChart />
           </div>
