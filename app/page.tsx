@@ -6,17 +6,19 @@ import SalesChart from "./components/SalesChart";
 import RecentOrders from "./components/RecentOrders";
 import ActivityTimeline from "./components/ActivityTimeline";
 import UserManagement from "./components/UserManagement";
+import MobileMenu from "./components/MobileMenu";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-950">
+      <MobileMenu />
       <Sidebar />
-      <main className="ml-64 p-8">
+      <main className="lg:ml-64 p-4 sm:p-6 lg:p-8">
         <Header />
         <QuickActions />
         <StatsCards />
         
-        <div className="grid lg:grid-cols-3 gap-8 mt-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8 mt-4 lg:mt-8">
           <div className="lg:col-span-2">
             <SalesChart />
           </div>
@@ -26,7 +28,7 @@ export default function Home() {
         </div>
         
         <RecentOrders />
-        <UserManagement />  {/* New section */}
+        <UserManagement />
       </main>
     </div>
   );
