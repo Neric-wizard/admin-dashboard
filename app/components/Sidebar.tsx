@@ -2,7 +2,7 @@
 
 export default function Sidebar() {
   return (
-    <aside className="fixed left-0 top-0 h-screen w-64 bg-gray-900 border-r border-gray-800 p-6">
+    <aside className="hidden lg:block fixed left-0 top-0 h-screen w-64 bg-gray-900 border-r border-gray-800 p-6">
       {/* Logo */}
       <div className="mb-10">
         <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">

@@ -10,33 +10,33 @@ export default function MobileMenu() {
     <>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="lg:hidden fixed top-4 left-4 z-50 bg-gray-800 p-2 rounded-xl border border-gray-700"
+        className="fixed top-3 left-3 z-50 bg-gray-800 p-2 rounded-lg border border-gray-700"
       >
-        {isOpen ? <X size={24} className="text-white" /> : <Menu size={24} className="text-white" />}
+        {isOpen ? <X size={20} className="text-white" /> : <Menu size={20} className="text-white" />}
       </button>
 
       {isOpen && (
-        <div className="lg:hidden fixed inset-0 bg-gray-900/95 backdrop-blur-sm z-40 p-6 pt-20">
-          <nav className="space-y-4">
-            <a href="#" className="flex items-center gap-3 text-white bg-purple-600/20 border border-purple-500/50 rounded-xl px-4 py-4">
-              <LayoutDashboard size={20} className="text-purple-400" />
-              <span className="text-lg">Dashboard</span>
+        <div className="fixed inset-0 bg-gray-900/95 backdrop-blur-sm z-40 pt-16">
+          <nav className="p-4 space-y-2">
+            <a href="#" className="flex items-center gap-3 text-white bg-purple-600/20 border border-purple-500/50 rounded-lg px-4 py-3">
+              <LayoutDashboard size={18} className="text-purple-400" />
+              <span>Dashboard</span>
             </a>
-            <a href="#" className="flex items-center gap-3 text-gray-400 hover:text-white hover:bg-gray-800 rounded-xl px-4 py-4 transition">
-              <Users size={20} />
-              <span className="text-lg">Users</span>
+            <a href="#" className="flex items-center gap-3 text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg px-4 py-3 transition">
+              <Users size={18} />
+              <span>Users</span>
             </a>
-            <a href="#" className="flex items-center gap-3 text-gray-400 hover:text-white hover:bg-gray-800 rounded-xl px-4 py-4 transition">
-              <ShoppingCart size={20} />
-              <span className="text-lg">Orders</span>
+            <a href="#" className="flex items-center gap-3 text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg px-4 py-3 transition">
+              <ShoppingCart size={18} />
+              <span>Orders</span>
             </a>
-            <a href="#" className="flex items-center gap-3 text-gray-400 hover:text-white hover:bg-gray-800 rounded-xl px-4 py-4 transition">
-              <BarChart3 size={20} />
-              <span className="text-lg">Analytics</span>
+            <a href="#" className="flex items-center gap-3 text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg px-4 py-3 transition">
+              <BarChart3 size={18} />
+              <span>Analytics</span>
             </a>
-            <a href="#" className="flex items-center gap-3 text-gray-400 hover:text-white hover:bg-gray-800 rounded-xl px-4 py-4 transition">
-              <Settings size={20} />
-              <span className="text-lg">Settings</span>
+            <a href="#" className="flex items-center gap-3 text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg px-4 py-3 transition">
+              <Settings size={18} />
+              <span>Settings</span>
             </a>
           </nav>
         </div>
