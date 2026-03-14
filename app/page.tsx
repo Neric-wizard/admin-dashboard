@@ -5,6 +5,7 @@ import StatsCards from "./components/StatsCards";
 import SalesChart from "./components/SalesChart";
 import RecentOrders from "./components/RecentOrders";
 import ActivityTimeline from "./components/ActivityTimeline";
+import UserManagement from "./components/UserManagement";
 
 export default function Home() {
   return (
@@ -15,7 +16,6 @@ export default function Home() {
         <QuickActions />
         <StatsCards />
         
-        {/* Two column layout for chart and activity */}
         <div className="grid lg:grid-cols-3 gap-8 mt-8">
           <div className="lg:col-span-2">
             <SalesChart />
@@ -26,6 +26,7 @@ export default function Home() {
         </div>
         
         <RecentOrders />
+        <UserManagement />  {/* New section */}
       </main>
     </div>
   );
