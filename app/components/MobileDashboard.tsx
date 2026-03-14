@@ -1,15 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { Menu, X, Home, Users, ShoppingBag, BarChart3 } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 export default function MobileDashboard() {
   const [menuOpen, setMenuOpen] = useState(false);
   
   return (
-    <div className="min-h-screen bg-gray-950 lg:hidden">
-      {/* Mobile Header */}
-      <div className="fixed top-0 left-0 right-0 bg-gray-900 border-b border-gray-800 p-4 z-20">
+    <div className="h-screen bg-gray-950 lg:hidden flex flex-col">
+      {/* Mobile Header - fixed at top */}
+      <div className="flex-none bg-gray-900 border-b border-gray-800 p-4 z-20">
         <div className="flex items-center justify-between">
           <h1 className="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
             AdminPanel
@@ -23,9 +23,9 @@ export default function MobileDashboard() {
         </div>
       </div>
       
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
       {menuOpen && (
-        <div className="fixed inset-0 bg-gray-900 z-10 pt-20 p-4">
+        <div className="absolute inset-0 bg-gray-900 z-10 pt-20 p-4">
           <nav className="space-y-3">
             <a href="#" className="block p-4 bg-purple-600/20 rounded-xl text-white font-medium">Dashboard</a>
             <a href="#" className="block p-4 hover:bg-gray-800 rounded-xl text-gray-300">Users</a>
@@ -35,8 +35,8 @@ export default function MobileDashboard() {
         </div>
       )}
       
-      {/* Mobile Content - Simplified Cards */}
-      <div className="pt-20 p-4">
+      {/* Scrollable Content Area */}
+      <div className="flex-1 overflow-y-auto p-4">
         {/* Quick Stats - 2x2 Grid */}
         <div className="grid grid-cols-2 gap-3 mb-4">
           <div className="bg-gray-800/50 rounded-xl p-4">
@@ -57,7 +57,7 @@ export default function MobileDashboard() {
           </div>
         </div>
         
-        {/* Recent Orders - Simplified */}
+        {/* Recent Orders - Scrollable list inside */}
         <div className="bg-gray-800/50 rounded-xl p-4 mb-4">
           <h2 className="text-white font-bold mb-3">Recent Orders</h2>
           <div className="space-y-3">
@@ -73,14 +73,33 @@ export default function MobileDashboard() {
               <span className="text-white">Amina D.</span>
               <span className="text-blue-400">$79</span>
             </div>
+            <div className="flex justify-between items-center">
+              <span className="text-white">David O.</span>
+              <span className="text-green-400">$399</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-white">Fatima A.</span>
+              <span className="text-red-400">$59</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-white">John M.</span>
+              <span className="text-yellow-400">$189</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-white">Grace O.</span>
+              <span className="text-green-400">$299</span>
+            </div>
           </div>
         </div>
         
         {/* Quick Actions */}
-        <div className="grid grid-cols-2 gap-3">
-          <button className="bg-purple-600 text-white rounded-xl py-3 text-center">+ New Order</button>
-          <button className="bg-gray-700 text-white rounded-xl py-3 text-center">Export</button>
+        <div className="grid grid-cols-2 gap-3 sticky bottom-0 bg-gray-950 pt-2">
+          <button className="bg-purple-600 text-white rounded-xl py-3 text-center font-medium">+ New Order</button>
+          <button className="bg-gray-700 text-white rounded-xl py-3 text-center font-medium">Export</button>
         </div>
+        
+        {/* Extra padding at bottom for smooth scrolling */}
+        <div className="h-4"></div>
       </div>
     </div>
   );
