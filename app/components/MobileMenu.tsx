@@ -1,55 +1,35 @@
 "use client";
 
 import { useState } from "react";
-import { Menu, X, LayoutDashboard, Users, ShoppingCart, BarChart3, Settings } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 export default function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
-      {/* Menu Button - Hidden on desktop (lg:hidden), visible on mobile */}
+      {/* Menu Button - visible only on mobile */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="lg:hidden fixed top-4 right-4 z-50 bg-gray-800 p-2 rounded-lg border border-gray-700 hover:bg-gray-700 transition"
+        className="lg:hidden fixed top-3 right-3 z-50 bg-gray-800 p-2.5 rounded-lg border border-gray-700"
       >
-        {isOpen ? <X size={20} className="text-white" /> : <Menu size={20} className="text-white" />}
+        {isOpen ? <X size={22} className="text-white" /> : <Menu size={22} className="text-white" />}
       </button>
 
-      {/* Overlay - only on mobile */}
+      {/* Menu Panel */}
       {isOpen && (
-        <div 
-          className="lg:hidden fixed inset-0 bg-black/50 z-40"
-          onClick={() => setIsOpen(false)}
-        ></div>
-      )}
-
-      {/* Menu Panel - only on mobile */}
-      {isOpen && (
-        <div className="lg:hidden fixed top-0 right-0 h-full w-64 bg-gray-900 border-l border-gray-800 z-40 pt-20">
-          <nav className="p-4 space-y-2">
-            <a href="#" className="flex items-center gap-3 text-white bg-purple-600/20 border border-purple-500/50 rounded-lg px-4 py-3">
-              <LayoutDashboard size={18} className="text-purple-400" />
-              <span>Dashboard</span>
-            </a>
-            <a href="#" className="flex items-center gap-3 text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg px-4 py-3 transition">
-              <Users size={18} />
-              <span>Users</span>
-            </a>
-            <a href="#" className="flex items-center gap-3 text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg px-4 py-3 transition">
-              <ShoppingCart size={18} />
-              <span>Orders</span>
-            </a>
-            <a href="#" className="flex items-center gap-3 text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg px-4 py-3 transition">
-              <BarChart3 size={18} />
-              <span>Analytics</span>
-            </a>
-            <a href="#" className="flex items-center gap-3 text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg px-4 py-3 transition">
-              <Settings size={18} />
-              <span>Settings</span>
-            </a>
-          </nav>
-        </div>
+        <>
+          <div className="fixed inset-0 bg-black/70 z-40 lg:hidden" onClick={() => setIsOpen(false)} />
+          <div className="fixed top-0 right-0 h-full w-64 bg-gray-900 z-40 p-5 pt-16 lg:hidden">
+            <nav className="space-y-3">
+              <a href="#" className="block p-3 bg-purple-600/20 rounded-lg text-white font-medium">Dashboard</a>
+              <a href="#" className="block p-3 hover:bg-gray-800 rounded-lg text-gray-300">Users</a>
+              <a href="#" className="block p-3 hover:bg-gray-800 rounded-lg text-gray-300">Orders</a>
+              <a href="#" className="block p-3 hover:bg-gray-800 rounded-lg text-gray-300">Analytics</a>
+              <a href="#" className="block p-3 hover:bg-gray-800 rounded-lg text-gray-300">Settings</a>
+            </nav>
+          </div>
+        </>
       )}
     </>
   );
