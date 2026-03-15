@@ -7,38 +7,45 @@ import RecentOrders from "./components/RecentOrders";
 import ActivityTimeline from "./components/ActivityTimeline";
 import UserManagement from "./components/UserManagement";
 import MobileMenu from "./components/MobileMenu";
-import MobileDashboard from "./components/MobileDashboard";
 
 export default function Home() {
   return (
-    <>
-      {/* Mobile View (hidden on desktop) */}
-      <div className="lg:hidden">
-        <MobileDashboard />
-      </div>
-      
-      {/* Desktop View (hidden on mobile) */}
-      <div className="hidden lg:block min-h-screen bg-gray-950">
-        <MobileMenu />
+    <div className="min-h-screen bg-gray-950">
+      {/* Desktop View - ONLY this shows on desktop */}
+      <div className="hidden lg:flex">
         <Sidebar />
-        <main className="ml-64 p-3 sm:p-4">
-          <Header />
-          <QuickActions />
-          <StatsCards />
-          
-          <div className="flex flex-col lg:grid lg:grid-cols-3 gap-4 mt-4">
-            <div className="lg:col-span-2">
-              <SalesChart />
+        <div className="flex-1 ml-64">
+          <MobileMenu />
+          <main className="p-6">
+            <Header />
+            <QuickActions />
+            <StatsCards />
+            
+            <div className="grid grid-cols-3 gap-6 mt-6">
+              <div className="col-span-2">
+                <SalesChart />
+              </div>
+              <div className="col-span-1">
+                <ActivityTimeline />
+              </div>
             </div>
-            <div className="lg:col-span-1">
-              <ActivityTimeline />
+            
+            <div className="mt-6">
+              <RecentOrders />
             </div>
-          </div>
-          
-          <RecentOrders />
-          <UserManagement />
-        </main>
+            
+            <div className="mt-6">
+              <UserManagement />
+            </div>
+          </main>
+        </div>
       </div>
-    </>
+
+      {/* Mobile View - ONLY this shows on mobile */}
+      <div className="block lg:hidden">
+        {/* We'll handle mobile separately */}
+        <div>Mobile view coming soon</div>
+      </div>
+    </div>
   );
 }
