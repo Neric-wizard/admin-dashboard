@@ -8,25 +8,25 @@ export default function MobileMenu() {
 
   return (
     <>
-      {/* Menu Button - Moved to the right side */}
+      {/* Menu Button - Hidden on desktop (lg:hidden), visible on mobile */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-4 right-4 z-50 lg:block hidden bg-gray-800 p-2 rounded-lg border border-gray-700 hover:bg-gray-700 transition"
+        className="lg:hidden fixed top-4 right-4 z-50 bg-gray-800 p-2 rounded-lg border border-gray-700 hover:bg-gray-700 transition"
       >
         {isOpen ? <X size={20} className="text-white" /> : <Menu size={20} className="text-white" />}
       </button>
 
-      {/* Overlay */}
+      {/* Overlay - only on mobile */}
       {isOpen && (
         <div 
-          className="fixed inset-0 bg-black/50 z-40"
+          className="lg:hidden fixed inset-0 bg-black/50 z-40"
           onClick={() => setIsOpen(false)}
         ></div>
       )}
 
-      {/* Menu Panel - Slides from right instead of left */}
+      {/* Menu Panel - only on mobile */}
       {isOpen && (
-        <div className="fixed top-0 right-0 h-full w-64 bg-gray-900 border-l border-gray-800 z-40 pt-20">
+        <div className="lg:hidden fixed top-0 right-0 h-full w-64 bg-gray-900 border-l border-gray-800 z-40 pt-20">
           <nav className="p-4 space-y-2">
             <a href="#" className="flex items-center gap-3 text-white bg-purple-600/20 border border-purple-500/50 rounded-lg px-4 py-3">
               <LayoutDashboard size={18} className="text-purple-400" />
