@@ -18,32 +18,36 @@ export default function Home() {
         <Sidebar />
       </div>
       
-      {/* Main Content - with left margin on desktop */}
+      {/* Main Content */}
       <main className="lg:ml-64 min-h-screen">
         <div className="pt-16 lg:pt-6 px-4 lg:px-6 pb-10">
-          {/* Desktop Layout - grid for desktop, stack for mobile */}
-          <div className="lg:block">
-            <Header />
-            <QuickActions />
-            <StatsCards />
-            
-            {/* Two column layout for desktop */}
-            <div className="lg:grid lg:grid-cols-3 lg:gap-6 mt-6">
-              <div className="lg:col-span-2">
-                <SalesChart />
-              </div>
-              <div className="lg:col-span-1">
-                <ActivityTimeline />
-              </div>
+          {/* Header - fixed position on desktop */}
+          <Header />
+          
+          {/* Quick Actions */}
+          <QuickActions />
+          
+          {/* Stats Cards */}
+          <StatsCards />
+          
+          {/* Two column layout for desktop */}
+          <div className="lg:grid lg:grid-cols-3 lg:gap-6 mt-6">
+            <div className="lg:col-span-2">
+              <SalesChart />
             </div>
-            
-            <div className="mt-6">
-              <RecentOrders />
+            <div className="lg:col-span-1">
+              <ActivityTimeline />
             </div>
-            
-            <div className="mt-6">
-              <UserManagement />
-            </div>
+          </div>
+          
+          {/* Recent Orders */}
+          <div className="mt-6">
+            <RecentOrders />
+          </div>
+          
+          {/* User Management */}
+          <div className="mt-6">
+            <UserManagement />
           </div>
         </div>
       </main>
