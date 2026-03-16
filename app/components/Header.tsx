@@ -1,6 +1,8 @@
 "use client";
 
 import { Search, Bell } from "lucide-react";
+import DensityToggle from "./DensityToggle";
+import CommandPalette from "./CommandPalette";
 
 export default function Header() {
   return (
@@ -18,11 +20,11 @@ export default function Header() {
         
         {/* Right side items */}
         <div className="flex items-center gap-2">
+          <DensityToggle />
           <button className="relative p-2 text-gray-400 hover:text-white">
             <Bell size={20} />
             <span className="absolute top-1 right-1 w-2 h-2 bg-pink-500 rounded-full"></span>
           </button>
-          
           <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold text-sm">
             NN
           </div>

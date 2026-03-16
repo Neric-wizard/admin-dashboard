@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Search, Download } from "lucide-react";
+import { Search } from "lucide-react";
 
 export default function RecentOrders() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -17,20 +17,17 @@ export default function RecentOrders() {
     order.customer.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const exportCurrentView = () => {
-    const headers = ["Customer", "Order ID", "Amount", "Status", "Time"];
-    const csvData = filteredOrders.map(order => [order.customer, order.id, order.amount, order.status, order.date]);
-    
-    let csvContent = headers.join(",") + "\n";
-    csvData.forEach(row => {
-      csvContent += row.join(",") + "\n";
-    });
-
-    const blob = new Blob([csvContent], { type: 'text/csv' });
+  const downloadSample = () => {
+    const sampleData = [
+      { order: "#001", customer: "Sarah Chen", amount: 129 },
+      { order: "#002", customer: "Michael O.", amount: 249 },
+      { order: "#003", customer: "Amina D.", amount: 79 },
+    ];
+    const blob = new Blob([JSON.stringify(sampleData, null, 2)], { type: 'application/json' });
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'orders.csv';
+    a.download = 'orders-sample.json';
     a.click();
   };
 
@@ -38,18 +35,14 @@ export default function RecentOrders() {
     <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl border border-gray-700 p-4">
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-white font-bold">Recent Orders</h2>
-        
-        {/* Export Button */}
-        <button 
-          onClick={exportCurrentView}
-          className="flex items-center gap-1 bg-purple-600/20 hover:bg-purple-600/30 text-purple-400 text-xs px-3 py-1.5 rounded-lg transition border border-purple-500/30"
+        <button
+          onClick={downloadSample}
+          className="text-xs bg-purple-600 hover:bg-purple-700 text-white px-3 py-1.5 rounded-lg transition flex items-center gap-1"
         >
-          <Download size={14} />
-          Export View
+          📥 Sample Data
         </button>
       </div>
 
-      {/* Search */}
       <div className="relative mb-4">
         <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400" size={14} />
         <input
@@ -61,7 +54,6 @@ export default function RecentOrders() {
         />
       </div>
 
-      {/* Orders List */}
       <div className="space-y-2">
         {filteredOrders.map((order) => (
           <div key={order.id} className="flex justify-between py-2 border-b border-gray-700 last:border-0">

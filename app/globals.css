@@ -29,3 +29,102 @@ body {
   color: rgb(var(--foreground));
   transition: background-color 0.3s, color 0.3s;
 }
+/* Compact mode styles */
+.compact .p-4 {
+  padding: 0.75rem !important;
+}
+
+.compact .p-5 {
+  padding: 0.75rem !important;
+}
+
+.compact .p-6 {
+  padding: 1rem !important;
+}
+
+.compact .px-4 {
+  padding-left: 0.75rem !important;
+  padding-right: 0.75rem !important;
+}
+
+.compact .py-3 {
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
+
+.compact .gap-4 {
+  gap: 0.75rem !important;
+}
+
+.compact .gap-3 {
+  gap: 0.5rem !important;
+}
+
+.compact .gap-2 {
+  gap: 0.25rem !important;
+}
+
+.compact .text-lg {
+  font-size: 1rem !important;
+}
+
+.compact .text-xl {
+  font-size: 1.125rem !important;
+}
+
+.compact .text-2xl {
+  font-size: 1.25rem !important;
+}
+
+.compact .h-8 {
+  height: 1.5rem !important;
+}
+
+.compact .w-8 {
+  width: 1.5rem !important;
+}
+
+.compact .h-10 {
+  height: 2rem !important;
+}
+
+.compact .w-10 {
+  width: 2rem !important;
+}
+
+.compact .h-12 {
+  height: 2.5rem !important;
+}
+
+.compact .w-12 {
+  width: 2.5rem !important;
+}
+
+.compact .mb-4 {
+  margin-bottom: 0.75rem !important;
+}
+
+.compact .mt-4 {
+  margin-top: 0.75rem !important;
+}
+
+.compact .mb-6 {
+  margin-bottom: 1rem !important;
+}
+
+.compact .mt-6 {
+  margin-top: 1rem !important;
+}
+
+.compact .rounded-xl {
+  border-radius: 0.5rem !important;
+}
+
+.compact .rounded-lg {
+  border-radius: 0.375rem !important;
+}
+
+/* Smooth transition for all elements */
+* {
+  transition: padding 0.2s ease, margin 0.2s ease, gap 0.2s ease, font-size 0.2s ease, height 0.2s ease, width 0.2s ease, border-radius 0.2s ease;
+}

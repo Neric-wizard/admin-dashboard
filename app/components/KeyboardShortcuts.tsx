@@ -7,12 +7,12 @@ export default function KeyboardShortcuts() {
   const [show, setShow] = useState(false);
 
   const shortcuts = [
-    { key: "G + D", description: "Go to Dashboard" },
-    { key: "G + U", description: "Go to Users" },
-    { key: "G + O", description: "Go to Orders" },
+    { key: "G + D", description: "Dashboard" },
+    { key: "G + U", description: "Users" },
+    { key: "G + O", description: "Orders" },
     { key: "/", description: "Focus search" },
-    { key: "E", description: "Export current view" },
-    { key: "?", description: "Show shortcuts" },
+    { key: "E", description: "Export view" },
+    { key: "?", description: "Help" },
   ];
 
   return (
@@ -26,23 +26,43 @@ export default function KeyboardShortcuts() {
       </button>
 
       {show && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={() => setShow(false)}>
-          <div className="bg-gray-800 rounded-xl border border-gray-700 p-6 max-w-md w-full max-h-[90vh] overflow-y-auto" onClick={e => e.stopPropagation()}>
-            <h3 className="text-white font-bold mb-4 text-lg">Keyboard Shortcuts</h3>
-            <div className="space-y-3">
+        <div 
+          className="fixed inset-0 bg-black/60 flex items-start justify-center z-50 pt-10 sm:pt-20"
+          onClick={() => setShow(false)}
+        >
+          <div 
+            className="bg-gray-800 rounded-xl border border-gray-700 w-11/12 max-w-md shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header */}
+            <div className="p-5 border-b border-gray-700">
+              <div className="flex justify-between items-center">
+                <h3 className="text-white font-bold text-lg">Keyboard Shortcuts</h3>
+                <button 
+                  onClick={() => setShow(false)}
+                  className="text-gray-400 hover:text-white text-2xl"
+                >
+                  ×
+                </button>
+              </div>
+            </div>
+            
+            {/* Shortcuts List */}
+            <div className="p-5 space-y-3 max-h-[60vh] overflow-y-auto">
               {shortcuts.map((s, i) => (
-                <div key={i} className="flex justify-between items-center py-2 border-b border-gray-700 last:border-0">
-                  <span className="bg-gray-900 px-3 py-1 rounded text-sm font-mono text-purple-400">{s.key}</span>
+                <div key={i} className="flex justify-between items-center">
+                  <span className="bg-gray-900 px-3 py-1.5 rounded text-sm font-mono text-purple-400 w-20 text-center">
+                    {s.key}
+                  </span>
                   <span className="text-gray-300 text-sm">{s.description}</span>
                 </div>
               ))}
             </div>
-            <button 
-              onClick={() => setShow(false)}
-              className="w-full mt-6 bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-lg transition"
-            >
-              Close
-            </button>
+            
+            {/* Footer */}
+            <div className="p-4 border-t border-gray-700 text-center">
+              <p className="text-xs text-gray-500">Click outside to close</p>
+            </div>
           </div>
         </div>
       )}

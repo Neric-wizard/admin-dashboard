@@ -10,12 +10,13 @@ import MobileMenu from "./components/MobileMenu";
 import DateRangePicker from "./components/DateRangePicker";
 import StatusSummary from "./components/StatusSummary";
 import RealTimeIndicator from "./components/RealTimeIndicator";
-import { ExportPanel } from './components';
-
+import ExportPanel from "./components/ExportPanel";
+import CommandPalette from "./components/CommandPalette";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-950">
+      <CommandPalette />
       <MobileMenu />
       
       {/* Sidebar */}
