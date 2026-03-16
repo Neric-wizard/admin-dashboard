@@ -9,6 +9,9 @@ import UserManagement from "./components/UserManagement";
 import MobileMenu from "./components/MobileMenu";
 import DateRangePicker from "./components/DateRangePicker";
 import StatusSummary from "./components/StatusSummary";
+import RealTimeIndicator from "./components/RealTimeIndicator";
+import { ExportPanel } from './components';
+
 
 export default function Home() {
   return (
@@ -24,16 +27,17 @@ export default function Home() {
       <main className="lg:ml-64 min-h-screen">
         <div className="pt-16 lg:pt-6 px-4 lg:px-6 pb-10">
           
-          {/* Header with Date Picker */}
+          {/* Header with Date Picker and Real-time Indicator */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
-            <h1 className="text-2xl font-bold text-white">Dashboard</h1>
+            <div className="flex items-center gap-4">
+              <h1 className="text-2xl font-bold text-white">Dashboard</h1>
+              <RealTimeIndicator />
+            </div>
             <DateRangePicker />
           </div>
           
           <Header />
           <QuickActions />
-          
-          {/* Stats Cards with Tooltips */}
           <StatsCards />
           
           {/* Two column layout */}
@@ -49,6 +53,11 @@ export default function Home() {
           {/* Status Summary */}
           <div className="mt-6">
             <StatusSummary />
+          </div>
+          
+          {/* Export Panel */}
+          <div className="mt-6">
+            <ExportPanel />
           </div>
           
           {/* Recent Orders */}

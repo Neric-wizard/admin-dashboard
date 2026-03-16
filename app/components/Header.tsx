@@ -6,7 +6,7 @@ export default function Header() {
   return (
     <header className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl p-3 sm:p-4 mb-4">
       <div className="flex items-center justify-between">
-        {/* Search - left side */}
+        {/* Search */}
         <div className="relative flex-1 max-w-md">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
           <input 
@@ -17,14 +17,12 @@ export default function Header() {
         </div>
         
         {/* Right side items */}
-        <div className="flex items-center gap-4">
-          {/* Notification bell - properly aligned */}
+        <div className="flex items-center gap-2">
           <button className="relative p-2 text-gray-400 hover:text-white">
             <Bell size={20} />
             <span className="absolute top-1 right-1 w-2 h-2 bg-pink-500 rounded-full"></span>
           </button>
           
-          {/* User avatar */}
           <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold text-sm">
             NN
           </div>

@@ -2,53 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom scrollbar */
-.custom-scrollbar::-webkit-scrollbar {
-  width: 6px;
-}
+@layer base {
+  :root {
+    --background: 255 255 255;
+    --foreground: 3 7 18;
+    --card: 249 250 251;
+    --card-foreground: 3 7 18;
+    --border: 229 231 235;
+    --primary: 147 51 234;
+    --primary-foreground: 255 255 255;
+  }
 
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: #1F2937;
-  border-radius: 10px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #4B5563;
-  border-radius: 10px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #6B7280;
-}
-
-/* Extra small devices */
-@media (min-width: 480px) {
-  .xs\:grid-cols-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  .dark {
+    --background: 3 7 18;
+    --foreground: 249 250 251;
+    --card: 17 24 39;
+    --card-foreground: 249 250 251;
+    --border: 31 41 55;
+    --primary: 168 85 247;
+    --primary-foreground: 3 7 18;
   }
 }
 
-/* Mobile first adjustments */
-@media (max-width: 640px) {
-  .ml-13 {
-    margin-left: 3.25rem;
-  }
-  
-  .truncate {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-}
-
-/* Touch-friendly buttons */
-button, a {
-  min-height: 40px;
-  min-width: 40px;
-}
-
-/* Better scrollbars on mobile */
-.overflow-x-auto {
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
+body {
+  background-color: rgb(var(--background));
+  color: rgb(var(--foreground));
+  transition: background-color 0.3s, color 0.3s;
 }
