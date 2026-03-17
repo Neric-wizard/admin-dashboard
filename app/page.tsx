@@ -12,11 +12,13 @@ import StatusSummary from "./components/StatusSummary";
 import RealTimeIndicator from "./components/RealTimeIndicator";
 import ExportPanel from "./components/ExportPanel";
 import CommandPalette from "./components/CommandPalette";
+import QuickActionPanel from "./components/QuickActionPanel";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-950">
       <CommandPalette />
+      <QuickActionPanel />
       <MobileMenu />
       
       {/* Sidebar */}

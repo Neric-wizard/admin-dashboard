@@ -3,6 +3,7 @@
 import { Search, Bell } from "lucide-react";
 import DensityToggle from "./DensityToggle";
 import CommandPalette from "./CommandPalette";
+import BentoGridToggle from "./BentoGridToggle";
 
 export default function Header() {
   return (
@@ -20,6 +21,7 @@ export default function Header() {
         
         {/* Right side items */}
         <div className="flex items-center gap-2">
+          <BentoGridToggle />
           <DensityToggle />
           <button className="relative p-2 text-gray-400 hover:text-white">
             <Bell size={20} />

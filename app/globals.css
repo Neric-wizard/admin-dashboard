@@ -128,3 +128,128 @@ body {
 * {
   transition: padding 0.2s ease, margin 0.2s ease, gap 0.2s ease, font-size 0.2s ease, height 0.2s ease, width 0.2s ease, border-radius 0.2s ease;
 }
+
+/* Bento Grid Styles */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.bento-grid .stats-card:nth-child(1) {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.bento-grid .stats-card:nth-child(2) {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.bento-grid .stats-card:nth-child(3) {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.bento-grid .stats-card:nth-child(4) {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.bento-grid .chart-card {
+  grid-column: span 3;
+  grid-row: span 2;
+}
+
+.bento-grid .activity-card {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+.bento-grid .orders-card {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.bento-grid .users-card {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+@media (max-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .bento-grid .stats-card:nth-child(1),
+  .bento-grid .stats-card:nth-child(2),
+  .bento-grid .stats-card:nth-child(3),
+  .bento-grid .stats-card:nth-child(4),
+  .bento-grid .chart-card,
+  .bento-grid .activity-card,
+  .bento-grid .orders-card,
+  .bento-grid .users-card {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
+
+/* Live Indicator Animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.live-dot {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+/* Toast Animations */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+.animate-slide-out {
+  animation: slideOut 0.3s ease-in forwards;
+}
+
+/* Toast Animations */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out forwards;
+}
